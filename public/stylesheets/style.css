@@ -6,3 +6,8 @@ body {
 a {
   color: #00B7FF;
 }
+
+.event-type{
+	display: inline;
+	margin-left: 20px;
+}

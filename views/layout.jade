@@ -1,11 +1,19 @@
 doctype 5
 html
-  head
-    title= title
-    link(rel='stylesheet', href='/stylesheets/style.css')
-    link(rel='stylesheet', href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css")
+	head
+		title= 'BigBlueButton HTML5 Client API Mate'
+		//- import css stylesheets
+		link(rel='stylesheet', href='/stylesheets/style.css')
+		link(rel='stylesheet', href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css")
 
-    script(src="//netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js")
+		//- import jquery
+		script(src='http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js')
+		script(src='http://jquery-json.googlecode.com/files/jquery.json-2.2.min.js')
+		
+		//- import bootstrap js
+		script(src="//netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js")
 
-  body
-    block content
+
+	body
+		h1 BigBlueButton HTML5 Client API Mate
+		block content
