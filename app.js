@@ -42,11 +42,15 @@ server.listen(4000);
 
 io.sockets.on('connection', function (socket) { // the actual socket callback
 	socket.emit('connected');
-    globalSocket = socket;
+
     console.log("socket on connection");
 
+    socket.on("sendUserJoinEvent", function (eventObj){
+		console.log(eventObj);
+	});
+    
+
 });
-        
 
 
 
