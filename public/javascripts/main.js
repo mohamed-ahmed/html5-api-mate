@@ -1,7 +1,7 @@
 
 $(document).ready(function(){
 
-	var socket = io.connect('http://localhost');
+	var socket = io.connect('http' + document.location.origin.split(':')[1]);
 
 	socket.on('connected', function(){
 		console.log('\n\n**connected');
