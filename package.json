@@ -1,6 +1,6 @@
 {
   "name": "html5-api-mate",
-  "version": "0.0.1",
+  "version": "1",
   "private": true,
   "scripts": {
     "start": "node app.js"
