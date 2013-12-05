@@ -1,5 +1,6 @@
 //TODO just for testing - to be removed in 'production'
-var globalSocket; 
+var globalSocket;
+var globalClientSocket;
 $(document).ready(function(){
 
 	fillFormfromCookies()
@@ -21,37 +22,59 @@ function bindEvent(socket){
 
 	$("#sendUserJoinEvent").click(function(){
 		console.log("clicked");
-		var eventObj = {
+		var formInfoObj = {
 			meetingID: $("#inputMeetingID").val(),
 			sessionID: $("#inputSessionID").val()
 		}
-		socket.emit("sendUserJoinEvent",eventObj);
+		socket.emit("sendUserJoinEvent",formInfoObj);
+	});
+
+	$("#sendWhiteboardDrawEvent").click(function(){
+		console.log("clicked");
+		var formInfoObj = {
+			meetingID: $("#inputMeetingID").val(),
+			sessionID: $("#inputSessionID").val()
+		}
+		socket.emit("sendWhiteboardDrawEvent",formInfoObj);
+	});
+
+	$("#sendWhiteboardUpdShapeEvent").click(function(){
+		console.log("clicked");
+		var formInfoObj = {
+			meetingID: $("#inputMeetingID").val(),
+			sessionID: $("#inputSessionID").val()
+		}
+		socket.emit("sendWhiteboardUpdShapeEvent",formInfoObj);
 	});
 
 	$("#createMeeting").click(function(){
 		console.log("clicked");
-		var eventObj = {
+		var formInfoObj = {
 			meetingID: $("#inputMeetingID").val(),
 			sessionID: $("#inputSessionID").val()
 		}
-		socket.emit("createMeeting",eventObj);
+		socket.emit("createMeeting",formInfoObj);
 	});
 
 	$("#connectUser").click(function(){
-		var clientSocket = io.connect('http://' + $("#inputUrl").val())
 		console.log("clicked");
-		/*var eventObj = {
-			meetingID: $("#inputMeetingID").val(),
-			sessionID: $("#inputSessionID").val()
-		}*/
+		var host = 'http://' + $("#inputClientUrl").val();
+		console.log(host);
+		var clientSocket = io.connect(host);
+		globalClientSocket = clientSocket;
+		if(clientSocket){
+			console.log("connected to html5-client");
+			console.log(clientSocket)
+			socket.emit("user connect")
+		}
+		else{
+			console.log("failed to connect");
+		}
 
-		//socket.emit("connectUser",eventObj);
 	});
 
 	$(".event-button").click(function(){
-		console.log("button clicked");
 		if($("#rememberBox")[0].checked){
-			console.log("box checked");
 			createCookie("meetingID", $("#inputMeetingID").val());
 			createCookie("meetingSessionID", $("#inputSessionID").val());
 			createCookie("url", $("#inputClientUrl").val());
