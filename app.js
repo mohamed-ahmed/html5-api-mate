@@ -73,6 +73,10 @@ function bindEvents(socket){
 		sendUserJoinEvent(formInfoObj);		
 	});
 
+	socket.on("createMeeting", function (formInfoObj){
+		createMeeting(formInfoObj);		
+	});
+
 
 };
 
@@ -86,16 +90,21 @@ function sendUserJoinEvent(formInfoObj){
 		name: "UserJoined",
 		meeting: {
 			id: formInfoObj.meetingID,
-			sessionID: formInfoObj.sessionID
+			sessionID: null
 		},
 		user: {
 			id: "user1",
 			externalId: "e-user-2",
-			name: "Mohamed",
+			name: "html5-api-user",
 			role: "VIEWER"
 		}
 	};
 
 	//send it to redis
 	redisClient.publish("BIGBLUEBUTTON:BRIDGE", JSON.stringify(eventObj));
+};
+
+function createMeeting(formInfoObj){
+
+	
 };

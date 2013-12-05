@@ -11,3 +11,7 @@ a {
 	display: inline;
 	margin-left: 20px;
 }
+
+.event-list-item{
+	margin-bottom: 10px
+}
