@@ -13,6 +13,11 @@ $(document).ready(function(){
 
 });
 
+
+	/*
+	*	binds socket events to button clicks
+	*	@param socket - socket object which connects to the server
+	*/
 function bindEvent(socket){
 
 	socket.on('connected', function(){
@@ -129,15 +134,15 @@ function readCookie(name) {
 }
 
 	/*
-	erases cookies
-	@param {String} name -  of coookie
+	*	erases cookies
+	*	@param {String} name -  of coookie
 	*/
 function eraseCookie(name) {
 	createCookie(name,"",-1);
 }
 
 	/*
-	Fills the form with data stored in the cookies from the last submission
+	*	Fills the form with data stored in the cookies from the last submission
 	*/
 function fillFormfromCookies(){
 	$("#rememberBox")[0].checked = JSON.parse( readCookie("remember") );
@@ -148,7 +153,7 @@ function fillFormfromCookies(){
 }
 
 	/*
-	Sets the cookies to data last enterted in the form 
+	*	Sets the cookies to data last enterted in the form 
 	*/
 function setCookiesFromForm(){
 	createCookie("remember", $("#rememberBox")[0].checked );

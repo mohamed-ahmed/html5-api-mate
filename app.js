@@ -65,9 +65,10 @@ io.sockets.on('connection', function (socket) { // the actual socket callback
 });
 
 
-/*
-	@param socket - the socket to transfer the events across 
-*/
+	/*
+	*	binds socket events for which it will listen on
+	*	@param socket - the socket to transfer the events across 
+	*/
 function bindEvents(socket){
 	socket.on("sendUserJoinEvent", function (formInfoObj){
 		sendUserJoinEvent(formInfoObj);		
@@ -170,12 +171,20 @@ function sendWhiteboardUpdShapeEvent(formInfoObj){
 	redisClient.publish("bigbluebutton:bridge", JSON.stringify(eventObj));
 };
 
+	/*
+	* TODO : maybe be able to create meetings from here
+	* or send a create meeting event and let the client
+	* create the meeting
+	*/
 function createMeeting(formInfoObj){
 
 	
 };
 
-
+	/*
+	* sendJSON - sends whatever JSON the client input across redis into the html5 client node server
+	* @param formInfoObj - object the event object that contains the information entered in the form 
+	*/
 function sendJSON(formInfoObj){
 	//send it to redis
 	redisClient.publish("bigbluebutton:bridge", JSON.stringify(formInfoObj));
