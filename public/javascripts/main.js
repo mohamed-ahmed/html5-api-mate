@@ -65,7 +65,7 @@ function bindEvent(socket){
 		if(clientSocket){
 			console.log("connected to html5-client");
 			console.log(clientSocket)
-			socket.emit("user connect")
+			clientSocket.emit("user connect")
 		}
 		else{
 			console.log("failed to connect");

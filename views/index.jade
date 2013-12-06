@@ -8,24 +8,20 @@ block content
 			div(class="col-sm-10")
 				input(type="text" class="form-control" id="inputMeetingID" placeholder="Meeting ID")
 
-		div(class="form-group")
 			label(for="inputSessionID" class="col-sm-2 control-label") Session ID
 			div(class="col-sm-10")
 				input(type="text" class="form-control" id="inputSessionID" placeholder="Session ID")
 
-		div(class="form-group")
 			label(for="clientUrl" class="col-sm-2 control-label") Client Url
 			div(class="col-sm-10")
 				input(type="text" class="form-control" id="inputClientUrl" placeholder="<ip address>:<port>")
 		
-		div(class="form-group")
 			div(class="col-sm-offset-2 col-sm-10")
 				div(class="checkbox")
 					label
 						input(type="checkbox" id="rememberBox") 
 					p Remember
 
-		div(class="form-group")
 
 			div(class="col-sm-offset-2 col-sm-10 event-list-item")
 				div(id="connectUser", class="btn btn-default event-button") Send 
@@ -36,9 +32,9 @@ block content
 				div(id="sendUserJoinEvent", class="btn btn-default event-button") Send 
 				p(class="event-type") Send 'UserJoined' event
 
-			div(class="col-sm-offset-2 col-sm-10 event-list-item")
-				div(id="createMeeting", class="btn btn-default event-button") Send 
-				p(class="event-type") Create a meeting
+			//- div(class="col-sm-offset-2 col-sm-10 event-list-item")
+			//- 	div(id="createMeeting", class="btn btn-default event-button") Send 
+			//- 	p(class="event-type") Create a meeting
 
 			div(class="col-sm-offset-2 col-sm-10 event-list-item")
 				div(id="sendWhiteboardDrawEvent", class="btn btn-default event-button") Send 

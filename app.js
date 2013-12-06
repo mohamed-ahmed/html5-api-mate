@@ -98,33 +98,28 @@ function sendUserJoinEvent(formInfoObj){
 		name: "UserJoined",
 		meeting: {
 			id: formInfoObj.meetingID,
-			sessionID: null
+			sessionID: formInfoObj.sessionID
 		},
 		user: {
-			id: "user1",
-			externalId: "e-user-2",
 			name: "html5-api-user",
 			role: "VIEWER"
 		}
 	};
 
 	//send it to redis
-	redisClient.publish("BIGBLUEBUTTON:BRIDGE", JSON.stringify(eventObj));
+	redisClient.publish("bigbluebutton:bridge", JSON.stringify(eventObj));
 };
 
 function sendWhiteboardDrawEvent(formInfoObj){
 	//define the correct object
 	var eventObj = {
 		"name": "whiteboardMakeShape",
-		"timestamp": 123456,
 		"meeting": {
 			"id": formInfoObj.meetingID,
-			"name": "English 101",
 			"sessionID": formInfoObj.sessionID
 		},
 		"shape": {
-			"id" : "user1-shape-1",
-			"type": "rectangle",
+			"type": "rect",
 			"coordinate": {
 				"firstX": 0.1,
 				"firstY": 0.1
@@ -139,22 +134,20 @@ function sendWhiteboardDrawEvent(formInfoObj){
 	};
 
 	//send it to redis
-	redisClient.publish("BIGBLUEBUTTON:BRIDGE", JSON.stringify(eventObj));
+	redisClient.publish("bigbluebutton:bridge", JSON.stringify(eventObj));
 };
 
 function sendWhiteboardUpdShapeEvent(formInfoObj){
 	//define the correct object
 	var eventObj = {
-		"name": "WhiteboardUpdShape",
+		"name": "whiteboardUpdShape",
 		"timestamp": 123456,
 		"meeting": {
 			"id": formInfoObj.meetingID,
-			"name": "English 101",
 			"sessionID": formInfoObj.sessionID
 		},
 		"shape": {
-			"id" : "user1-shape-1",
-			"type": "rectangle",
+			"type": "rect",
 			"coordinate": {
 				"firstX": 0.1,
 	            "firstY": 0.1,
@@ -170,7 +163,7 @@ function sendWhiteboardUpdShapeEvent(formInfoObj){
 	};
 
 	//send it to redis
-	redisClient.publish("BIGBLUEBUTTON:BRIDGE", JSON.stringify(eventObj));
+	redisClient.publish("bigbluebutton:bridge", JSON.stringify(eventObj));
 };
 
 function createMeeting(formInfoObj){
