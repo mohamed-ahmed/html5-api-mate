@@ -85,6 +85,10 @@ function bindEvents(socket){
 		createMeeting(formInfoObj);		
 	});
 
+	socket.on("sendJSON", function (formInfoObj){
+		sendJSON(formInfoObj);		
+	});
+
 
 };
 
@@ -169,4 +173,10 @@ function sendWhiteboardUpdShapeEvent(formInfoObj){
 function createMeeting(formInfoObj){
 
 	
+};
+
+
+function sendJSON(formInfoObj){
+	//send it to redis
+	redisClient.publish("bigbluebutton:bridge", JSON.stringify(formInfoObj));
 };

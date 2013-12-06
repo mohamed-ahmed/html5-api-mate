@@ -3,7 +3,7 @@ var globalSocket;
 var globalClientSocket;
 $(document).ready(function(){
 
-	fillFormfromCookies()
+	fillFormfromCookies();
 
 	//connec to correct socket
 	var socket = io.connect(window.location.protocol + "//" + window.location.host);
@@ -75,10 +75,22 @@ function bindEvent(socket){
 
 	$(".event-button").click(function(){
 		if($("#rememberBox")[0].checked){
-			createCookie("meetingID", $("#inputMeetingID").val());
-			createCookie("meetingSessionID", $("#inputSessionID").val());
-			createCookie("url", $("#inputClientUrl").val());
+			setCookiesFromForm();
 		}
+	});
+
+	$("#sendJSON").click(function(){
+		console.log("clicked");
+		var formInfoObj;
+		try{
+			formInfoObj = JSON.parse( $("#inputJSON").val() );
+			socket.emit("sendJSON",formInfoObj);
+		}
+		catch(err)
+		{
+			alert("Invalid JSON");
+		}
+
 	});
 
 };
@@ -128,7 +140,20 @@ function eraseCookie(name) {
 	Fills the form with data stored in the cookies from the last submission
 	*/
 function fillFormfromCookies(){
+	$("#rememberBox")[0].checked = JSON.parse( readCookie("remember") );
 	$("#inputMeetingID").val( readCookie("meetingID") );
 	$("#inputSessionID").val( readCookie("meetingSessionID") );
 	$("#inputClientUrl").val( readCookie("url") );
+	$("#inputJSON").val( readCookie("JSON") );
+}
+
+	/*
+	Sets the cookies to data last enterted in the form 
+	*/
+function setCookiesFromForm(){
+	createCookie("remember", $("#rememberBox")[0].checked );
+	createCookie("meetingID", $("#inputMeetingID").val());
+	createCookie("meetingSessionID", $("#inputSessionID").val());
+	createCookie("url", $("#inputClientUrl").val());
+	createCookie("JSON", $("#inputJSON").val());
 }
