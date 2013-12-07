@@ -149,7 +149,9 @@ function fillFormfromCookies(){
 	$("#inputMeetingID").val( readCookie("meetingID") );
 	$("#inputSessionID").val( readCookie("meetingSessionID") );
 	$("#inputClientUrl").val( readCookie("url") );
-	$("#inputJSON").val( readCookie("JSON") );
+	var JSONstring = readCookie("JSON");
+
+	$("#inputJSON").val( JSON.stringify( JSON.parse(JSONstring), null, 2 )  );
 }
 
 	/*
@@ -160,5 +162,6 @@ function setCookiesFromForm(){
 	createCookie("meetingID", $("#inputMeetingID").val());
 	createCookie("meetingSessionID", $("#inputSessionID").val());
 	createCookie("url", $("#inputClientUrl").val());
-	createCookie("JSON", $("#inputJSON").val());
+	createCookie("JSON", $("#inputJSON").val().toString().replace(/(\r\n|\n|\r)/gm,'') );
 }
+
