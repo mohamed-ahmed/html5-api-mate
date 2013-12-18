@@ -12,9 +12,9 @@ block content
 			div(class="col-sm-10")
 				input(type="text" class="form-control" id="inputSessionID" placeholder="Session ID")
 
-			label(for="clientUrl" class="col-sm-2 control-label") Client Url
-			div(class="col-sm-10")
-				input(type="text" class="form-control" id="inputClientUrl" placeholder="<ip address>:<port>")
+			//- label(for="clientUrl" class="col-sm-2 control-label") Client Url
+			//- div(class="col-sm-10")
+			//- 	input(type="text" class="form-control" id="inputClientUrl" placeholder="<ip address>:<port>")
 		
 			div(class="col-sm-offset-2 col-sm-10")
 				div(class="checkbox")
@@ -23,26 +23,26 @@ block content
 					p Remember
 
 
-			div(class="col-sm-offset-2 col-sm-10 event-list-item")
-				div(id="connectUser", class="btn btn-default event-button") Send 
-				p(class="event-type") Connect user
+			//- div(class="col-sm-offset-2 col-sm-10 event-list-item")
+			//- 	div(id="connectUser", class="btn btn-default event-button") Send 
+			//- 	p(class="event-type") Connect user
 
-
-			div(class="col-sm-offset-2 col-sm-10 event-list-item")
-				div(id="sendUserJoinEvent", class="btn btn-default event-button") Send 
-				p(class="event-type") Send 'UserJoined' event
 
 			//- div(class="col-sm-offset-2 col-sm-10 event-list-item")
-			//- 	div(id="createMeeting", class="btn btn-default event-button") Send 
-			//- 	p(class="event-type") Create a meeting
+			//- 	div(id="sendUserJoinEvent", class="btn btn-default event-button") Send 
+			//- 	p(class="event-type") Send 'UserJoined' event
 
-			div(class="col-sm-offset-2 col-sm-10 event-list-item")
-				div(id="sendWhiteboardDrawEvent", class="btn btn-default event-button") Send 
-				p(class="event-type") Send 'WhiteboardDrawRect' event
+			//- //- div(class="col-sm-offset-2 col-sm-10 event-list-item")
+			//- //- 	div(id="createMeeting", class="btn btn-default event-button") Send 
+			//- //- 	p(class="event-type") Create a meeting
 
-			div(class="col-sm-offset-2 col-sm-10 event-list-item")
-				div(id="sendWhiteboardUpdShapeEvent", class="btn btn-default event-button") Send 
-				p(class="event-type") Send 'whiteboardUpdShape' event
+			//- div(class="col-sm-offset-2 col-sm-10 event-list-item")
+			//- 	div(id="sendWhiteboardDrawEvent", class="btn btn-default event-button") Send 
+			//- 	p(class="event-type") Send 'WhiteboardDrawRect' event
+
+			//- div(class="col-sm-offset-2 col-sm-10 event-list-item")
+			//- 	div(id="sendWhiteboardUpdShapeEvent", class="btn btn-default event-button") Send 
+			//- 	p(class="event-type") Send 'whiteboardUpdShape' event
 
 
 			label(for="inputJSON" class="col-sm-2 control-label") Send Arbitrary JSON event
@@ -53,3 +53,9 @@ block content
 					span
 						a(href="http://jsonlint.com/" target="_blank") JSON Lint 
 				div(id="sendJSON", class="btn btn-default event-button") Send 
+
+
+		div.footer
+				a(href="https://github.com/mohamed-ahmed/html5-api-mate" id='footer1') On Github | 
+				span
+					a(href="mailto:mohamed.ahmed@live.ca", id="footer2") Mohamed Ahmed

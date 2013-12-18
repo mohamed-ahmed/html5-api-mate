@@ -15,3 +15,20 @@ a {
 .event-list-item{
 	margin-bottom: 10px
 }
+#inputJSON{
+	color:black;
+}
+
+.form-control{
+	margin-bottom: 5px;
+}
+
+.footer {
+	position: relative;
+	margin-top: 60px;
+	margin-bottom: -100px;
+	clear:both;
+	padding-top:20px;
+	text-align:center;
+} 
+
