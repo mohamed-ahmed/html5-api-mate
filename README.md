@@ -12,7 +12,7 @@ In the root directory of the repository, use npm to install the dependencies (ex
   
 ## Usage
 
- Staring the application
+ Starting the application
  
     node app.js
     
