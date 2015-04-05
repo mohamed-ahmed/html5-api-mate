@@ -13,6 +13,7 @@ $(document).ready(function(){
 
 });
 
+//adding a comment
 
 	/*
 	*	binds socket events to button clicks
